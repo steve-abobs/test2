@@ -1,0 +1,131 @@
+[
+  {
+    "case_id": "C-17",
+    "process_type": "onboarding",
+    "crm_text": "Первый выход сотрудника — завтра. В CRM ожидаются документы; подтверждения получения и проверки документов нет.",
+    "chat_messages": [
+      {
+        "author": "Сотрудник",
+        "role": null,
+        "text": "Вчера отправил фотографии документов руководителю в личные сообщения.",
+        "timestamp": null
+      }
+    ],
+    "expected_review_focus": [
+      "Отправка указана только в чате.",
+      "Нет подтверждения получения и проверки в CRM.",
+      "Проверить получение документов и зафиксировать результат в официальном процессе."
+    ],
+    "final_category": "requires_intervention",
+    "human_review_required": true,
+    "ml_category": "requires_intervention",
+    "ml_margin": 0.2403796911239624,
+    "llm_category": null,
+    "llm_status": "not_configured",
+    "rule_codes": [
+      "LLM_NOT_CONFIGURED"
+    ],
+    "start_with": "Проверить недостающие подтверждения и назначить ответственного.",
+    "component_warnings": [
+      "LLM: DEEPSEEK_API_KEY не задан. Независимый LLM-аудит не выполнялся; итоговая категория требует ручной проверки.",
+      "LLM: LLM-аудит недоступен: отсутствует DEEPSEEK_API_KEY."
+    ]
+  },
+  {
+    "case_id": "C-24",
+    "process_type": "dismissal",
+    "crm_text": "Последний рабочий день сотрудника — сегодня. В CRM отсутствует подтверждение ответственного руководителя.",
+    "chat_messages": [
+      {
+        "author": "Сотрудник",
+        "role": null,
+        "text": "С руководителем всё обсудили, он в курсе.",
+        "timestamp": null
+      }
+    ],
+    "expected_review_focus": [
+      "Сообщение сотрудника не является подтверждением руководителя.",
+      "В CRM нет обязательного подтверждения.",
+      "Оперативно связаться с ответственным руководителем и зафиксировать подтверждение."
+    ],
+    "final_category": "requires_intervention",
+    "human_review_required": true,
+    "ml_category": "requires_intervention",
+    "ml_margin": 0.3770122826099396,
+    "llm_category": null,
+    "llm_status": "not_configured",
+    "rule_codes": [
+      "LLM_NOT_CONFIGURED"
+    ],
+    "start_with": "Проверить недостающие подтверждения и назначить ответственного.",
+    "component_warnings": [
+      "LLM: DEEPSEEK_API_KEY не задан. Независимый LLM-аудит не выполнялся; итоговая категория требует ручной проверки.",
+      "LLM: LLM-аудит недоступен: отсутствует DEEPSEEK_API_KEY."
+    ]
+  },
+  {
+    "case_id": "P-08",
+    "process_type": "card_delivery",
+    "crm_text": "Доставка запланирована сегодня до 10:00. Текущий статус CRM: «В пути».",
+    "chat_messages": [
+      {
+        "author": "Курьер",
+        "role": null,
+        "text": "Раньше 13:00 не приеду.",
+        "timestamp": null
+      }
+    ],
+    "expected_review_focus": [
+      "Сообщение курьера расходится с ожидаемым сроком до 10:00.",
+      "Статус «В пути» не подтверждает доставку.",
+      "Уточнить актуальное время и уведомить заинтересованных."
+    ],
+    "final_category": "priority_1",
+    "human_review_required": true,
+    "ml_category": "priority_1",
+    "ml_margin": 0.2943568825721741,
+    "llm_category": null,
+    "llm_status": "not_configured",
+    "rule_codes": [
+      "LLM_NOT_CONFIGURED",
+      "PRIORITY1_FROM_ML"
+    ],
+    "start_with": "Поднять кейс ответственному руководителю и проверить критический шаг.",
+    "component_warnings": [
+      "LLM: DEEPSEEK_API_KEY не задан. Независимый LLM-аудит не выполнялся; итоговая категория требует ручной проверки.",
+      "LLM: LLM-аудит недоступен: отсутствует DEEPSEEK_API_KEY."
+    ]
+  },
+  {
+    "case_id": "P-09",
+    "process_type": "card_delivery_receipt",
+    "crm_text": "Статус: «Принято». Приёмка подтверждена сегодня в 09:20.",
+    "chat_messages": [
+      {
+        "author": "Получатель",
+        "role": null,
+        "text": "Карты получили, количество проверили.",
+        "timestamp": null
+      }
+    ],
+    "expected_review_focus": [
+      "CRM содержит подтверждение приёмки.",
+      "Сообщение получателя согласуется с CRM.",
+      "При отсутствии других проблем дополнительное вмешательство не требуется."
+    ],
+    "final_category": "requires_intervention",
+    "human_review_required": true,
+    "ml_category": "no_intervention",
+    "ml_margin": 0.21094509959220886,
+    "llm_category": null,
+    "llm_status": "not_configured",
+    "rule_codes": [
+      "LLM_NOT_CONFIGURED"
+    ],
+    "start_with": "Проверить кейс вручную: LLM-аудит недоступен, автоматическое подтверждение невозможно.",
+    "component_warnings": [
+      "LLM: DEEPSEEK_API_KEY не задан. Независимый LLM-аудит не выполнялся; итоговая категория требует ручной проверки.",
+      "LLM: LLM-аудит недоступен: отсутствует DEEPSEEK_API_KEY."
+    ]
+  }
+]

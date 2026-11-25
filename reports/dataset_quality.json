@@ -1,0 +1,81 @@
+{
+  "status": "warn",
+  "dataset_engine": "offline",
+  "dataset_engine_note": "OFFLINE FALLBACK: использованы шаблонные кейсы без DeepSeek. Это bootstrap-корпус для проверки пайплайна, а не замена генеративной модели; метрики на нём не являются свидетельством реального качества.",
+  "dataset_size": 260,
+  "label_counts": {
+    "priority_1": 100,
+    "requires_intervention": 100,
+    "no_intervention": 60
+  },
+  "process_type_counts": {
+    "onboarding": 60,
+    "dismissal": 50,
+    "card_delivery": 60,
+    "card_delivery_receipt": 50,
+    "other": 40
+  },
+  "family_count": 26,
+  "split_sizes": {
+    "train": 180,
+    "validation": 40,
+    "test": 40
+  },
+  "split_family_counts": {
+    "train": 18,
+    "validation": 4,
+    "test": 4
+  },
+  "checks": {
+    "exact_duplicates": 0,
+    "near_duplicate_pairs": [],
+    "family_leakage": [],
+    "mixed_label_families": {},
+    "imbalance_ratio": 1.67,
+    "logical_issues": [],
+    "repeated_crm_top": [
+      {
+        "crm_text": "Карты не доставлены в обещанный срок; статус «Ошибка доставки», повторная дата отсутствует.",
+        "count": 2
+      },
+      {
+        "crm_text": "CRM: доставка завершена, подпись получателя есть; фактический адрес вручения не совпадает с заявкой.",
+        "count": 2
+      },
+      {
+        "crm_text": "Обязательство по вручению закрыто в CRM, при этом место передачи карт не подтверждено получателем.",
+        "count": 2
+      },
+      {
+        "crm_text": "Карты доставлены сегодня, количество не сошлось; обязательная сверка и акт отсутствуют.",
+        "count": 2
+      },
+      {
+        "crm_text": "CRM: приёмка завершена, при этом получатель заявил о повреждении карт; официальной фиксации нет.",
+        "count": 2
+      }
+    ],
+    "repeated_crm_share": 0.2231,
+    "potential_label_keywords": {
+      "priority_1": [],
+      "requires_intervention": [],
+      "no_intervention": [
+        "замечаний"
+      ]
+    }
+  },
+  "failures": [],
+  "warnings": [
+    "Высокая шаблонность CRM-текста: 22% кейсов используют повторяющиеся CRM.",
+    "Обнаружены потенциальные label-маркеры; проверьте вручную."
+  ],
+  "manual_checks": [
+    "Выборочно прочитать по 10 кейсов каждого класса и проверить rationale/evidence.",
+    "Проверить, что priority_1 действительно связан с истёкшим/сегодняшним сроком или риском.",
+    "Проверить no_intervention на наличие формальных подтверждений в CRM.",
+    "Регулярно перегенерировать DeepSeek-корпус и повторять аудит.",
+    "Для реальных выводов нужны обезличенные реальные кейсы и разметка экспертов."
+  ],
+  "production_ready": false,
+  "disclaimer": "Отчёт проверяет синтетический корпус и не подтверждает production readiness. Синтетические метрики не доказывают качество на реальных данных."
+}

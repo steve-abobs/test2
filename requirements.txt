@@ -1,0 +1,13 @@
+# Support Case AI — учебный прототип.
+# Torch удобнее ставить CPU-сборкой (см. README), чтобы не тянуть CUDA.
+python-dotenv>=1.0,<2
+pydantic>=2.6,<3
+numpy>=1.26,<3
+pandas>=2.2,<3
+scikit-learn>=1.4,<2
+joblib>=1.3,<2
+sentence-transformers>=3.0,<4
+transformers>=4.41,<5
+streamlit>=1.35,<2
+openai>=1.30,<3
+pytest>=8.0,<9
